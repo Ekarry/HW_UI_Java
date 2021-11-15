@@ -1,5 +1,6 @@
 package HW_3.CRM_GB.HW_6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +19,7 @@ public class ProjectCreating extends BaseView{
     public WebElement projectNameInput;
     public  By projectNameInputLocator = By.name("crm_project[name]");
 
+    @Step("Заполнение поля 'Название проекта'")
     public ProjectCreating fillProjectNameInput(String projectName) {
         projectNameInput.sendKeys(projectName);
         return this;
@@ -27,6 +29,7 @@ public class ProjectCreating extends BaseView{
     public WebElement OrganisationNameSearch;
     public By OrganisationNameSearchLocator = By.xpath("//span[@class='select2-arrow']/..");
 
+    @Step("Выбор организации")
     public ProjectCreating fillOrganisationSearch(String organisationName) {
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("loader-overlay")));
         OrganisationNameSearch.click();
@@ -41,6 +44,7 @@ public class ProjectCreating extends BaseView{
     @FindBy(name = "crm_project[businessUnit]")
     public WebElement businessUnitSelect;
 
+    @Step("Выбор подразделения")
     public ProjectCreating selectBusinessUnitSelect(String businessUnitName) {
         new Select (businessUnitSelect).selectByVisibleText(businessUnitName);
         return this;
@@ -49,6 +53,7 @@ public class ProjectCreating extends BaseView{
     @FindBy(name = "crm_project[curator]")
     public WebElement projectCurator;
 
+    @Step("Выбор куратора")
     public ProjectCreating selectProjectCurator(String projectCuratorName) {
         new Select (projectCurator).selectByVisibleText(projectCuratorName);
         return this;
@@ -57,6 +62,7 @@ public class ProjectCreating extends BaseView{
     @FindBy(name = "crm_project[rp]")
     public WebElement projectManager;
 
+    @Step("Выбор руководителя проекта")
     public ProjectCreating selectProjectManager(String projectManagerName) {
         new Select (projectManager).selectByVisibleText(projectManagerName);
         return this;
@@ -65,6 +71,7 @@ public class ProjectCreating extends BaseView{
     @FindBy(name = "crm_project[manager]")
     public WebElement manager;
 
+    @Step("Выбор менеджера")
     public ProjectCreating selectManager(String managerName) {
         new Select (manager).selectByVisibleText(managerName);
         return this;
@@ -76,7 +83,7 @@ public class ProjectCreating extends BaseView{
 
     @FindBy(xpath = "//body")
     public WebElement planningDescription;
-
+    @Step("Заполнение iframe 'Планирование'")
     public ProjectCreating fillPlanningDescription(String planningDescriptionsText) {
         driver.switchTo().frame(framePlanning);
         planningDescription.sendKeys(planningDescriptionsText);
@@ -89,7 +96,7 @@ public class ProjectCreating extends BaseView{
 
     @FindBy(xpath = "//body")
     public WebElement projectRequirementsManagementDescription;
-
+    @Step("Заполнение iframe 'Управление требованиями'")
     public ProjectCreating fillProjectRequirementsManagementDescription(String projectRequirementsManagementDescriptionText) {
         driver.switchTo().frame(frameProjectRequirementsManagement);
         projectRequirementsManagementDescription.sendKeys(projectRequirementsManagementDescriptionText);
@@ -103,6 +110,7 @@ public class ProjectCreating extends BaseView{
     @FindBy(xpath = "//body")
     public WebElement projectDevelopmentDescription;
 
+    @Step("Заполнение iframe 'Разработка'")
     public ProjectCreating fillProjectDevelopmentDescription(String projectDevelopmentDescriptionText) {
         driver.switchTo().frame(frameProjectDevelopment);
         projectDevelopmentDescription.sendKeys(projectDevelopmentDescriptionText);
@@ -116,6 +124,7 @@ public class ProjectCreating extends BaseView{
     @FindBy(xpath = "//body")
     public WebElement testingDescription;
 
+    @Step("Заполнение iframe 'Тестирование'")
     public ProjectCreating fillTestingDescription(String testingDescriptionText) {
         driver.switchTo().frame(frameTesting);
         testingDescription.sendKeys(testingDescriptionText);
@@ -127,6 +136,7 @@ public class ProjectCreating extends BaseView{
     @FindBy(name = "crm_project[configManagement]")
     public WebElement configManagement;
 
+    @Step("Заполнение поля 'Управление конфигурацией'")
     public ProjectCreating fillConfigManagement(String configManagementText) {
         configManagement.click();
         configManagement.sendKeys(configManagementText);

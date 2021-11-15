@@ -2,6 +2,7 @@ package TestKudaGo_6;
 
 import HW_3.KudaGo.HW_6.LogIn;
 import HW_3.KudaGo.HW_6.LogOut;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +11,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static ru.yandex.qatools.htmlelements.matchers.WebElementMatchers.isDisplayed;
 
+@Feature("Тестирование позитивного сценария LogIn и LogOut")
 public class TestsPositiveLoginAndLogOut extends TestBase {
     @BeforeEach
     public void goToPage() {

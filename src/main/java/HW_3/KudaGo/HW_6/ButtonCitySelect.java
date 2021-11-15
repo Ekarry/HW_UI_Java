@@ -1,5 +1,6 @@
 package HW_3.KudaGo.HW_6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -19,16 +20,20 @@ public class ButtonCitySelect extends BasePage {
     @FindBy(xpath = "//div[@class='location-switcher']/span")
     public WebElement successCitySelect;
 
+    @Step("Выпадающее меню для выбора города")
     public ButtonCitySelect dropDownCitySelect(){
         Actions actions = new Actions(driver);
         actions.moveToElement(iconCitySelect).perform();
         return this;
     }
+
+    @Step("Нажать кнопку для выбора города")
     public ButtonCitySelect clickCitySelect(){
         iconCitySelect.click();
         return this;
     }
 
+    @Step("Выбрать город Санкт-Петербург")
     public void citySelect(){
         citySelect.click();
     }

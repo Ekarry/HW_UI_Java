@@ -1,6 +1,7 @@
 package HW_3.KudaGo.HW_6;
 
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
@@ -25,27 +26,31 @@ public class LogOut extends BasePage {
     @FindBy(xpath = "//a[@href='/account/login/'][1]//span[1]")
     public WebElement successLogOut;
 
+    @Step("Авторизация с помощью Cookie")
     public LogOut getCookie(){
         Cookie sessionCookie = driver.manage().getCookieNamed("sessionid");
         driver.manage().deleteCookie(sessionCookie);
-        Cookie cookie = new Cookie("sessionid", "jyg4nhuqxpwpm7v80aj5q59w4hlcfkao");
+        Cookie cookie = new Cookie("sessionid", "e37fasabw4ixdgyyxs33yrc1992m8rpt");
         driver.manage().addCookie(cookie);
         driver.navigate().refresh();
         return this;
     }
 
+    @Step("Ожидание авторизованной страницы")
     public LogOut waitLoginLocator() {
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(new LogOut(driver)
                 .loginLocator));
         return this;
     }
 
+    @Step("Нажать выпадающее меню для выхода с авторизованной страницы")
     public LogOut iconDropDownForLogOut() {
         Actions actions = new Actions(driver);
         actions.moveToElement(iconSelectForLogOut).perform();
         return this;
     }
 
+    @Step("Нажать кнопку Выйти")
     public void clickForLogOut() {
         clickLogOut.click();
     }

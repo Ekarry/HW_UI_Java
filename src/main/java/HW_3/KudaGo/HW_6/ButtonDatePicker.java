@@ -1,6 +1,7 @@
 package HW_3.KudaGo.HW_6;
 
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,16 +23,19 @@ public class ButtonDatePicker extends BasePage {
     @FindBy(xpath = "//div[@id='react-date-picker']")
     public WebElement successChosenDate;
 
+    @Step("Нажать кнопку Выбор даты")
     public ButtonDatePicker clickDayPickerItem() {
         dayPickerItem.click();
         return this;
     }
 
+    @Step("Выбрать дату")
     public ButtonDatePicker clickChosenDate() {
         chosenDate.click();
         return this;
     }
 
+    @Step("Нажать кнопку Применить")
     public ButtonDatePicker clickButtonChosenDate() {
         buttonChosenDate.click();
         return this;

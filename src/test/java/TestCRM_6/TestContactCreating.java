@@ -4,15 +4,17 @@ import HW_3.CRM_GB.HW_6.ContactCreate;
 import HW_3.CRM_GB.HW_6.ContactsPage;
 import HW_3.CRM_GB.HW_6.LoginPage;
 import HW_3.CRM_GB.HW_6.PartnerSubMenu;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.annotations.Test;
 
 import static HW_3.CRM_GB.Configuration.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static ru.yandex.qatools.htmlelements.matchers.WebElementMatchers.isDisplayed;
 
+@Feature("Тестирование создания нового контактного лица")
 public class TestContactCreating extends TestBase {
     @BeforeEach
     public void goToPage(){
